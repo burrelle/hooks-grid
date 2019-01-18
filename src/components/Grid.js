@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import GridItem from './GridItem';
 
 const GridWrapper = styled.div`
@@ -18,8 +19,12 @@ export default function Grid({ values: { gridItems, columns, rows, gap } }) {
       `}
     >
       {[...Array(gridItems)].map((_, i) => (
-        <GridItem key={i} value={i + 1}/>
+        <GridItem key={i} value={i + 1} />
       ))}
     </GridWrapper>
   );
 }
+
+Grid.propTypes = {
+  values: PropTypes.shape({}).isRequired
+};

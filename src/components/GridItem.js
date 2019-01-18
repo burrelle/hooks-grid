@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const Item = styled.div`
   display: grid;
@@ -16,3 +17,7 @@ const Item = styled.div`
 export default function GridItem({ value }) {
   return <Item>{value}</Item>;
 }
+
+GridItem.propTypes = {
+  value: PropTypes.number.isRequired
+};

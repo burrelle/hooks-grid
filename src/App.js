@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
+import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 import Controller from './components/Controller';
 import Grid from './components/Grid';
-import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 
 const theme = {
   yellow: 'rgba(253, 187, 45, 1)',
