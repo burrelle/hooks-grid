@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Controls = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   font-weight: 800;
 `;
 
@@ -76,28 +76,6 @@ export default function Controller({ controls, setControls }) {
               secondary
               onClick={() =>
                 setControls({ ...controls, columns: controls.columns - 1 })
-              }
-            >
-              -
-            </Button>
-          )}
-        </ControlButtons>
-      </Control>
-      <Control>
-        <p>Rows: {controls.rows}</p>
-        <ControlButtons>
-          <Button
-            onClick={() =>
-              setControls({ ...controls, rows: controls.rows + 1 })
-            }
-          >
-            +
-          </Button>
-          {controls.rows > 0 && (
-            <Button
-              secondary
-              onClick={() =>
-                setControls({ ...controls, rows: controls.rows - 1 })
               }
             >
               -
