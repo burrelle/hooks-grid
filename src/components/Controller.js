@@ -36,95 +36,46 @@ const Button = styled.button`
   width: 1.5rem;
 `;
 
+function toUpperCase(word) {
+   word = word.replace(/([a-z])([A-Z])/g, '$1 $2');
+   return word.charAt(0).toUpperCase() + word.slice(1);
+}
+
 export default function Controller({ controls, setControls }) {
   return (
     <Controls>
-      <Control>
-        <p>Grid Items: {controls.gridItems}</p>
-        <ControlButtons>
-          <Button
-            onClick={() =>
-              setControls({ ...controls, gridItems: controls.gridItems + 1 })
-            }
-          >
-            +
-          </Button>
-          {controls.gridItems > 0 && (
-            <Button
-              secondary
-              onClick={() =>
-                setControls({ ...controls, gridItems: controls.gridItems - 1 })
-              }
-            >
-              -
-            </Button>
-          )}
-        </ControlButtons>
-      </Control>
-      <Control>
-        <p>Columns: {controls.columns}</p>
-        <ControlButtons>
-          <Button
-            onClick={() =>
-              setControls({ ...controls, columns: controls.columns + 1 })
-            }
-          >
-            +
-          </Button>
-          {controls.columns > 0 && (
-            <Button
-              secondary
-              onClick={() =>
-                setControls({ ...controls, columns: controls.columns - 1 })
-              }
-            >
-              -
-            </Button>
-          )}
-        </ControlButtons>
-      </Control>
-      <Control>
-        <p>Rows: {controls.rows}</p>
-        <ControlButtons>
-          <Button
-            onClick={() =>
-              setControls({ ...controls, rows: controls.rows + 1 })
-            }
-          >
-            +
-          </Button>
-          {controls.rows > 0 && (
-            <Button
-              secondary
-              onClick={() =>
-                setControls({ ...controls, rows: controls.rows - 1 })
-              }
-            >
-              -
-            </Button>
-          )}
-        </ControlButtons>
-      </Control>
-      <Control>
-        <p>Gap: {controls.gap} px</p>
-        <ControlButtons>
-          <Button
-            onClick={() => setControls({ ...controls, gap: controls.gap + 5 })}
-          >
-            +
-          </Button>
-          {controls.gap > 0 && (
-            <Button
-              secondary
-              onClick={() =>
-                setControls({ ...controls, gap: controls.gap - 5 })
-              }
-            >
-              -
-            </Button>
-          )}
-        </ControlButtons>
-      </Control>
+      {Object.keys(controls).map(control => (
+        <React.Fragment key={control}>
+          <Control>
+            <p>{toUpperCase(control)}: {controls[control]}</p>
+            <ControlButtons>
+              <Button
+                onClick={() =>
+                  setControls({
+                    ...controls,
+                    [control]: controls[control] + 1
+                  })
+                }
+              >
+                +
+              </Button>
+              {controls[control] > 0 && (
+                <Button
+                  secondary
+                  onClick={() =>
+                    setControls({
+                      ...controls,
+                      [control]: controls[control] - 1
+                    })
+                  }
+                >
+                  -
+                </Button>
+              )}
+            </ControlButtons>
+          </Control>
+        </React.Fragment>
+      ))}
     </Controls>
   );
 }
