@@ -1,0 +1,14 @@
+{
+  "env": {
+    "browser": true
+  },
+  "extends": "airbnb",
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": "error",
+    "react/jsx-filename-extension": "off",
+    "react/no-array-index-key": "off",
+    "object-curly-newline": "off",
+    "comma-dangle": "off"
+  }
+}
