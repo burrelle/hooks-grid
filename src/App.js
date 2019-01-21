@@ -32,7 +32,6 @@ export default function App() {
   const [controls, setControls] = useState({
     gridItems: 1,
     columns: 1,
-    rows: 1,
     gap: 20
   });
 
