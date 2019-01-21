@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
@@ -46,7 +46,7 @@ export default function Controller({ controls, setControls }) {
   return (
     <Controls>
       {Object.keys(controls).map(control => (
-        <React.Fragment key={control}>
+        <Fragment key={control}>
           <Control>
             <p>
               {toUpperCase(control)}: {controls[control]}
@@ -77,7 +77,7 @@ export default function Controller({ controls, setControls }) {
               )}
             </ControlButtons>
           </Control>
-        </React.Fragment>
+        </Fragment>
       ))}
     </Controls>
   );
