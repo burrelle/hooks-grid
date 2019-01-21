@@ -9,12 +9,11 @@ const GridWrapper = styled.div`
   align-content: center;
 `;
 
-export default function Grid({ values: { gridItems, columns, rows, gap } }) {
+export default function Grid({ values: { gridItems, columns, gap } }) {
   return (
     <GridWrapper
       css={`
         grid-template-columns: repeat(${columns}, 1fr);
-        grid-template-rows: repeat(${rows}, 1fr);
         grid-gap: ${gap}px;
       `}
     >
