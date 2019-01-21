@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 import Controller from './components/Controller';
 import Grid from './components/Grid';
@@ -37,13 +37,13 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <div>
+      <Fragment>
         <GlobalStyle />
         <Controller controls={controls} setControls={setControls} />
         <Container>
           <Grid values={{ ...controls }} />
         </Container>
-      </div>
+      </Fragment>
     </ThemeProvider>
   );
 }
