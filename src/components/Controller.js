@@ -6,6 +6,11 @@ const Controls = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   font-weight: 800;
+  @media (max-width: 640px) {
+    display: inline-grid;
+    grid-template-columns: repeat(1, 1fr);
+    width: 100%;
+  }
 `;
 
 const Control = styled.div`
