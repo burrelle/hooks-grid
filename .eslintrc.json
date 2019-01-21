@@ -9,6 +9,8 @@
     "react/jsx-filename-extension": "off",
     "react/no-array-index-key": "off",
     "object-curly-newline": "off",
-    "comma-dangle": "off"
+    "comma-dangle": "off",
+    "implicit-arrow-linebreak": "off",
+    "react/jsx-one-expression-per-line": "off"
   }
 }

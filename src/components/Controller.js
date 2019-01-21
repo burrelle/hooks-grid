@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const Controls = styled.div`
   display: grid;
@@ -37,8 +38,8 @@ const Button = styled.button`
 `;
 
 function toUpperCase(word) {
-   word = word.replace(/([a-z])([A-Z])/g, '$1 $2');
-   return word.charAt(0).toUpperCase() + word.slice(1);
+  const splitWord = word.replace(/([a-z])([A-Z])/g, '$1 $2');
+  return splitWord.charAt(0).toUpperCase() + splitWord.slice(1);
 }
 
 export default function Controller({ controls, setControls }) {
@@ -47,7 +48,9 @@ export default function Controller({ controls, setControls }) {
       {Object.keys(controls).map(control => (
         <React.Fragment key={control}>
           <Control>
-            <p>{toUpperCase(control)}: {controls[control]}</p>
+            <p>
+              {toUpperCase(control)}: {controls[control]}
+            </p>
             <ControlButtons>
               <Button
                 onClick={() =>
@@ -79,3 +82,8 @@ export default function Controller({ controls, setControls }) {
     </Controls>
   );
 }
+
+Controller.propTypes = {
+  controls: PropTypes.shape({}).isRequired,
+  setControls: PropTypes.func.isRequired
+};
